@@ -7,11 +7,16 @@ Arduino XBee Shield Tutorial (Part 3)
 Table of Contents
 -----------------
 
-* [Introduction]()
-* [XBee Wireless Communication Setup]()
-* [XBee Shields]()
-* [Example]()
-* [Reference]()
+<!-- MarkdownTOC -->
+
+- [Introduction](#introduction)
+    - [Requirement](#requirement)
+- [XBee Wireless Communication Setup](#xbee-wireless-communication-setup)
+- [XBee Shields](#xbee-shields)
+- [Example](#example)
+- [Reference](#reference)
+
+<!-- /MarkdownTOC -->
 
 Introduction
 -----------------
@@ -95,7 +100,7 @@ Reference
 <!-- Links -->
 
 [setup]: https://eewiki.net/display/Wireless/XBee+Wireless+Communication+Setup#XBeeWirelessCommunicationSetup-Step1:DownloadX-CTUSoftware
-[xbee_shield]: pic/xbee_shield.jpg
-[xbee_shield_interface]: pic/XBee_Shield_Interface.jpg
+[xbee_shield]: ../pic/xbee_shield.jpg
+[xbee_shield_interface]: ../pic/XBee_Shield_Interface.jpg
 [ref0]: https://www.cooking-hacks.com/documentation/tutorials/xbee-arduino-raspberry-pi-tutorial
 

@@ -7,10 +7,18 @@ Android and Udoo Communication (Part 4)
 Table of Contents
 -----------------
 
-* [Introduction]()
-* [Requirement]()
-* [Steps]()
-* [Reference]()
+<!-- MarkdownTOC -->
+
+- [Introduction](#introduction)
+- [Requirement](#requirement)
+- [Steps](#steps)
+    - [AndroidManifest.xml](#androidmanifestxml)
+    - [res/xml/accessory_filter.xml](#resxmlaccessory_filterxml)
+    - [UDOOBlinkLEDActivity.java](#udooblinkledactivityjava)
+    - [UDOOArduinoADKDemo.ino](#udooarduinoadkdemoino)
+- [Reference](#reference)
+
+<!-- /MarkdownTOC -->
 
 Introduction
 -----------------
@@ -185,7 +193,5 @@ Reference
 
 <!-- Links -->
 
-[accessory]: pic/usb-host-accessory.png
-
+[accessory]: ../pic/usb-host-accessory.png
 [ref0]: http://www.udoo.org/docs/Android/Android_And_Arduino_Simple_Hello_World_Tutorial
-

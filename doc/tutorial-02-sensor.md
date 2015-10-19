@@ -7,18 +7,22 @@ Sensor Platform (Part 2)
 Table of Contents
 -----------------
 
-* [e-Health Sensor Shield]()
-* [Pulse and Oxygen in Blood (SPO2)](#pulse-and-oxygen-in-blood-spo2)
-    * [SPO2 sensor features](#spo2-sensor-features)
-    * [Connecting the sensor]()
-    * [Library functions]()
-    * [Example]()
-* [Patient Position Sensor (Accelerometer)]()
-    * [Patient position and falls]()
-    * [Connecting the sensor]()
-    * [Library functions]()
-    * [Example]()
-* [Reference]()
+<!-- MarkdownTOC -->
+
+- [e-Health Sensor Shield](#e-health-sensor-shield)
+- [Pulse and Oxygen in Blood (SPO2)](#pulse-and-oxygen-in-blood-spo2)
+    - [SPO2 sensor features](#spo2-sensor-features)
+    - [Connecting the sensor](#connecting-the-sensor)
+    - [Library functions](#library-functions)
+    - [Example](#example)
+- [Patient Position Sensor (Accelerometer)](#patient-position-sensor-accelerometer)
+    - [Patient position and falls](#patient-position-and-falls)
+    - [Connecting the sensor](#connecting-the-sensor-1)
+    - [Library functions](#library-functions-1)
+    - [Example](#example-1)
+- [Reference](#reference)
+
+<!-- /MarkdownTOC -->
 
 e-Health Sensor Shield
 -----------------
@@ -249,5 +253,5 @@ Reference
 <!-- Links -->
 
 [ref0]: https://www.cooking-hacks.com/documentation/tutorials/ehealth-biometric-sensor-platform-arduino-raspberry-pi-medical
-[ref1]: pic/pulse_and_oxygen_connected_e_health_big.png
-[ref2]: pic/body_position_connected_e_health_small.png
+[ref1]: ../pic/pulse_and_oxygen_connected_e_health_big.png
+[ref2]: ../pic/body_position_connected_e_health_small.png

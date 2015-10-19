@@ -7,21 +7,25 @@ Arduino and Udoo controller (Part 1)
 Table of Contents
 -----------------
 
-* [Arduino]()
-    * [Introduction]()
-    * [Arduino IDE]()
-        * [Installation]()
-        * [Writing Sketches]()
-        * [Programming Language]()
-        * [Uploading Sketch]()
-        * [Serial Monitor]()
-* [Udoo]()
-    * [Introduction]()
-    * [Program UDOO Arduino Processor From External PC](#program-udoo-arduino-processor-from-external-pc)
-        * [Requirements]()
-        * [Arduino IDE Installation]()
-* [Example]()
-* [Reference]()
+<!-- MarkdownTOC -->
+
+- [Arduino](#arduino)
+    - [Introduction](#introduction)
+    - [Arduino IDE](#arduino-ide)
+        - [Installation](#installation)
+        - [Writing Sketches](#writing-sketches)
+        - [Programming Language](#programming-language)
+        - [Uploading Sketch](#uploading-sketch)
+        - [Serial Monitor](#serial-monitor)
+- [Udoo](#udoo)
+    - [Introduction](#introduction-1)
+    - [Program UDOO Arduino Processor From External PC](#program-udoo-arduino-processor-from-external-pc)
+        - [Requirements](#requirements)
+        - [Arduino IDE Installation](#arduino-ide-installation)
+- [Example](#example)
+- [Reference](#reference)
+
+<!-- /MarkdownTOC -->
 
 Arduino
 -----------------
@@ -121,9 +125,9 @@ Reference
 
 <!-- Links -->
 
-[udoo]: pic/Box1_Tutorials_UdooSite.png
-[udoo_01]: pic/boardJ18-03.png
-[udoo_02]: pic/board_usb2-01.jpg
+[udoo]: ../pic/Box1_Tutorials_UdooSite.png
+[udoo_01]: ../pic/boardJ18-03.png
+[udoo_02]: ../pic/board_usb2-01.jpg
 [resources]: http://www.udoo.org/other-resources/
 [usb_driver]: http://www.silabs.com/products/mcu/pages/usbtouartbridgevcpdrivers.aspx
 [ref0]: http://www.udoo.org/tutorial/getting-started-with-arduino-ide-on-udoo/

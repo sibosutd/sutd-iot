@@ -26,12 +26,12 @@ Others
 <!-- Links -->
 
 [iot]: pic/iot.png
-[tutorial_1]: tutorial-01-udoo.md
-[tutorial_2]: tutorial-02-sensor.md
-[tutorial_3]: tutorial-03-xbee.md
-[tutorial_4]: tutorial-04-android.md
-[project]: student-project.md
-[notes]: notes.md
-[config]: staff-config.md
+[tutorial_1]: doc/tutorial-01-udoo.md
+[tutorial_2]: doc/tutorial-02-sensor.md
+[tutorial_3]: doc/tutorial-03-xbee.md
+[tutorial_4]: doc/tutorial-04-android.md
+[project]: doc/student-project.md
+[notes]: doc/notes.md
+[config]: doc/staff-config.md
 
 
