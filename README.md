@@ -9,6 +9,7 @@ SUTD-IoT
 Tutorial
 -----------------
 
++ [Software Installation][software]
 + [Tutorial 1: Udoo Introduction][tutorial_1]
 + [Tutorial 2: Sensor Platform][tutorial_2]
 + [Tutorial 3: XBee Communication][tutorial_3]
@@ -26,6 +27,7 @@ Others
 <!-- Links -->
 
 [iot]: pic/iot.png
+[software]: doc/software.md
 [tutorial_1]: doc/tutorial-01-udoo.md
 [tutorial_2]: doc/tutorial-02-sensor.md
 [tutorial_3]: doc/tutorial-03-xbee.md
