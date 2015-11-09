@@ -62,28 +62,22 @@ var COLORS = ['#2196F3', '#E91E63', '#009688'];
 var charts = createCharts(COLORS, CHART_NAMES);
 var counter = 8; // keeps track of the x-axis
 
-
+var PULSE_MAX = 160;
 function createDoughnut(id) {
     var canvas = document.getElementById(id);
     var ctx = canvas.getContext('2d');
+    var initPulse = 50;
     var data = [
         {
-            value: 300,
-            color:"#F7464A",
-            highlight: "#FF5A5E",
-            label: "Red"
+            value: PULSE_MAX - initPulse,
+            color: "#FFF",
+            highlight: "#B6B6B6"
         },
         {
-            value: 50,
-            color: "#46BFBD",
-            highlight: "#5AD3D1",
-            label: "Green"
-        },
-        {
-            value: 100,
-            color: "#FDB45C",
-            highlight: "#FFC870",
-            label: "Yellow"
+            value: initPulse,
+            color: "#F44336",
+            highlight: "#D32F2F",
+            label: "Pulse"
         }
     ];
 
@@ -95,13 +89,26 @@ function createDoughnut(id) {
 }
 
 
-createDoughnut('pulse-doughnut');
+var pulseDoughnut = createDoughnut('pulse-doughnut');
 
+function updatePulse(data) {
+    console.log(data);
+
+    pulseDoughnut.segments[0].value = PULSE_MAX - data;
+    pulseDoughnut.segments[1].value = data;
+    pulseDoughnut.update();
+
+    var label = document.getElementById('pulse-doughnut-label');
+    label.textContent = data + ' BPM';
+
+    // Remove the first point so we dont just add values forever
+}
 
 (function update() {
     httpGetAsync(API_URL, function (rawData) {
         var data = rawData.split(' ');
         updateCharts(charts, data);
+        updatePulse(data[0]);
         update();
     });
 })();
