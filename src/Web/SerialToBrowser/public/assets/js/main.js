@@ -88,27 +88,41 @@ function createDoughnut(id) {
     return myDoughnutChart;
 }
 
+function createDoughnuts(ids) {
+    return ids.map(function (id) {
+        return createDoughnut(id);
+    });
+}
 
-var pulseDoughnut = createDoughnut('pulse-doughnut');
+var DOUGHNUT_NAMES = ['pulse-doughnut', 'oxygen-doughnut', 'patient-doughnut'];
+var DOUGHNUT_LABELS = ['pulse-doughnut-label', 'oxygen-doughnut-label', 'patient-doughnut-label'];
 
-function updatePulse(data) {
+
+
+var doughnuts = createDoughnuts(DOUGHNUT_NAMES);
+
+function updateDoughnuts(doughnuts, data) {
+    doughnuts.forEach(function (doughnut, index) {
+        updateDoughnut(doughnut, DOUGHNUT_LABELS[index], data[index]);
+    });
+}
+
+function updateDoughnut(doughtnut, labelId, data) {
     console.log(data);
 
-    pulseDoughnut.segments[0].value = PULSE_MAX - data;
-    pulseDoughnut.segments[1].value = data;
-    pulseDoughnut.update();
+    doughtnut.segments[0].value = PULSE_MAX - data;
+    doughtnut.segments[1].value = data;
+    doughtnut.update();
 
-    var label = document.getElementById('pulse-doughnut-label');
+    var label = document.getElementById(labelId);
     label.textContent = data + ' BPM';
-
-    // Remove the first point so we dont just add values forever
 }
 
 (function update() {
     httpGetAsync(API_URL, function (rawData) {
         var data = rawData.split(' ');
         updateCharts(charts, data);
-        updatePulse(data[0]);
+        updateDoughnuts(doughnuts, data);
         update();
     });
 })();
