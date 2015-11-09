@@ -52,7 +52,8 @@ function Doughnut (name, canvasId, labelId, initValue, maxValue, units, options)
 
     this.chart = new Chart(ctx).Doughnut(data, {
         animationEasing: 'easeInOutQuart',
-        animationSteps: 60
+        animationSteps: 60,
+        percentageInnerCutout : 70
     });
 }
 

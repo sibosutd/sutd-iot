@@ -1,6 +1,6 @@
 .chart {
-    margin-top: 10px;
-    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .doughnut-label {
@@ -9,6 +9,9 @@
     left: 45%;
     width: 30px; /* Set smaller to force text to overflow*/
     text-align: center;
+    font-weight: 600;
+    font-size: 1.2em;
+    vertical-align: center;
 }
 
 .doughnut {

@@ -57,9 +57,12 @@ function updateCharts(charts, data) {
 var CHART_NAMES = ['pulse-chart', 'oxygen-chart'];
 var CHANNEL = 3;
 var API_URL = '/device/' + CHANNEL;
-var COLORS = ['#F44336', '#2196F3'];
+var COLORS = {
+    pulse: 'rgb(229,115,115)',
+    oxygen: 'rgb(79,195,247)'
+}
 
-var charts = createCharts(COLORS, CHART_NAMES);
+var charts = createCharts([COLORS.pulse, COLORS.oxygen], CHART_NAMES);
 var counter = 8; // keeps track of the x-axis
 
 var DOUGHNUTS = [
@@ -71,7 +74,7 @@ var DOUGHNUTS = [
         initValue: 50,
         maxValue: 160,
         options: {
-            color: '#F44336'
+            color: COLORS.pulse
         }
     },
     {
@@ -80,7 +83,7 @@ var DOUGHNUTS = [
         labelId: 'oxygen-doughnut-label',
         units: 'S<sub>p</sub>O<sub>2</sub>',
         options: {
-            color: '#2196F3'
+            color: COLORS.oxygen
         }
     }
 ];
