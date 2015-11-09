@@ -63,59 +63,40 @@ var charts = createCharts(COLORS, CHART_NAMES);
 var counter = 8; // keeps track of the x-axis
 
 var PULSE_MAX = 160;
-function createDoughnut(id) {
-    var canvas = document.getElementById(id);
-    var ctx = canvas.getContext('2d');
-    var initPulse = 50;
-    var data = [
-        {
-            value: PULSE_MAX - initPulse,
-            color: "#FFF",
-            highlight: "#B6B6B6"
-        },
-        {
-            value: initPulse,
-            color: "#F44336",
-            highlight: "#D32F2F",
-            label: "Pulse"
-        }
-    ];
-
-    var myDoughnutChart = new Chart(ctx).Doughnut(data, {
-
-    });
-
-    return myDoughnutChart;
-}
-
-function createDoughnuts(ids) {
-    return ids.map(function (id) {
-        return createDoughnut(id);
-    });
-}
-
-var DOUGHNUT_NAMES = ['pulse-doughnut', 'oxygen-doughnut', 'patient-doughnut'];
-var DOUGHNUT_LABELS = ['pulse-doughnut-label', 'oxygen-doughnut-label', 'patient-doughnut-label'];
 
 
+var DOUGHNUTS = [
+    {
+        canvasId: 'pulse-doughnut',
+        labelId: 'pulse-doughnut-label',
+        units: 'BPM',
+        maxValue: 160
+    },
+    {
+        canvasId: 'oxygen-doughnut',
+        labelId: 'oxygen-doughnut-label',
+        units: 'S<sub>p</sub>O<sub>2</sub>'
+    },
+    {
+        canvasId: 'patient-doughnut',
+        labelId: 'patient-doughnut-label',
+        units: 'P'
+    }
+];
 
-var doughnuts = createDoughnuts(DOUGHNUT_NAMES);
+var doughnuts = DOUGHNUTS.map(function (doughnutDetails) {
+    return new Doughnut(
+        doughnutDetails.canvasId,
+        doughnutDetails.labelId,
+        doughnutDetails.maxValue,
+        doughnutDetails.units,
+        null);
+});
 
 function updateDoughnuts(doughnuts, data) {
     doughnuts.forEach(function (doughnut, index) {
-        updateDoughnut(doughnut, DOUGHNUT_LABELS[index], data[index]);
+        doughnut.update(data[index]);
     });
-}
-
-function updateDoughnut(doughtnut, labelId, data) {
-    console.log(data);
-
-    doughtnut.segments[0].value = PULSE_MAX - data;
-    doughtnut.segments[1].value = data;
-    doughtnut.update();
-
-    var label = document.getElementById(labelId);
-    label.textContent = data + ' BPM';
 }
 
 (function update() {
@@ -123,6 +104,7 @@ function updateDoughnut(doughtnut, labelId, data) {
         var data = rawData.split(' ');
         updateCharts(charts, data);
         updateDoughnuts(doughnuts, data);
+
         update();
     });
 })();

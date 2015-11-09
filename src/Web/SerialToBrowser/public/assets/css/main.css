@@ -6,8 +6,8 @@
 .doughnut-label {
     position: absolute;
     top: 55%;
-    left: 42%;
-    width: 50px;
+    left: 45%;
+    width: 30px; /* Set smaller to force text to overflow*/
     text-align: center;
 }
 
