@@ -2,3 +2,16 @@
     margin-top: 10px;
     margin-bottom: 50px;
 }
+
+.doughnut-label {
+    position: absolute;
+    top: 57%;
+    left: 46%;
+}
+
+.doughnut {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    display: block;
+}
