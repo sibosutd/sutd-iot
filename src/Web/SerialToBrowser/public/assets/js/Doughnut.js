@@ -11,32 +11,43 @@ function updateDoughnut(doughtnut, labelId, maxValue, units, data) {
     doughtnut.update();
 
     var label = document.getElementById(labelId);
-    label.innerHTML = data + ' ' + units;
+
+    if (!units) {
+        label.innerHTML = data;
+    } else {
+        label.innerHTML = data + ' ' + units;
+    }
+
 }
 
 var INIT_VALUE = 50;
 var MAX_VALUE = 100;
+var COLOR = '#F44336'
 
-function Doughnut (canvasId, labelId, maxValue, units, options) {
+function Doughnut (name, canvasId, labelId, initValue, maxValue, units, options) {
     this.labelId = labelId;
     this.maxValue = maxValue || MAX_VALUE;
     this.units = units;
-
     var canvas = document.getElementById(canvasId);
     var ctx = canvas.getContext('2d');
-    var initValue = INIT_VALUE;
+    var initValue = initValue || INIT_VALUE;
+
+    var dataOptions = {
+        value: initValue,
+        color: options.color || COLOR,
+        highlight: "#D32F2F",
+        label: name
+    };
+
+
+
     var data = [
         {
             value: this.maxValue - initValue,
             color: "#FFF",
             highlight: "#B6B6B6"
         },
-        {
-            value: initValue,
-            color: "#F44336",
-            highlight: "#D32F2F",
-            label: "Pulse"
-        }
+        dataOptions
     ];
 
     this.chart = new Chart(ctx).Doughnut(data, {

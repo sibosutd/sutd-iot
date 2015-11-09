@@ -57,40 +57,54 @@ function updateCharts(charts, data) {
 var CHART_NAMES = ['pulse-chart', 'oxygen-chart', 'patient-chart'];
 var CHANNEL = 3;
 var API_URL = '/device/' + CHANNEL;
-var COLORS = ['#2196F3', '#E91E63', '#009688'];
+var COLORS = ['#F44336', '#2196F3', '#009688'];
 
 var charts = createCharts(COLORS, CHART_NAMES);
 var counter = 8; // keeps track of the x-axis
 
-var PULSE_MAX = 160;
-
-
 var DOUGHNUTS = [
     {
+        name: 'Pulse',
         canvasId: 'pulse-doughnut',
         labelId: 'pulse-doughnut-label',
         units: 'BPM',
-        maxValue: 160
+        initValue: 50,
+        maxValue: 160,
+        options: {
+            color: '#F44336'
+        }
     },
     {
+        name: 'Oxygen',
         canvasId: 'oxygen-doughnut',
         labelId: 'oxygen-doughnut-label',
-        units: 'S<sub>p</sub>O<sub>2</sub>'
+        units: 'S<sub>p</sub>O<sub>2</sub>',
+        options: {
+            color: '#2196F3'
+        }
     },
     {
+        name: 'Position',
         canvasId: 'patient-doughnut',
         labelId: 'patient-doughnut-label',
-        units: 'P'
+        units: 'P',
+        initValue: 1,
+        maxValue: 5,
+        options: {
+            color: '#009688'
+        }
     }
 ];
 
 var doughnuts = DOUGHNUTS.map(function (doughnutDetails) {
     return new Doughnut(
+        doughnutDetails.name,
         doughnutDetails.canvasId,
         doughnutDetails.labelId,
+        doughnutDetails.initValue,
         doughnutDetails.maxValue,
         doughnutDetails.units,
-        null);
+        doughnutDetails.options);
 });
 
 function updateDoughnuts(doughnuts, data) {

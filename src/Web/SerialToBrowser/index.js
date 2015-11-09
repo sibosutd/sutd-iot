@@ -58,7 +58,7 @@ function randomData() {
 function getSensorReading(request, response) {
 
     if (shouldSimulateData) {
-        var data = [randomData(), randomData(), randomData()];
+        var data = [randomData(), randomData(), Math.round(random(1, 5))];
         setTimeout(function () {
 
             response.end(data.join(' '));
