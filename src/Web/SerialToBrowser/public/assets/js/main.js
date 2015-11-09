@@ -9,8 +9,8 @@ function httpGetAsync(theUrl, callback) {
     xmlHttp.send(null);
 }
 
-function createCharts(selectors) {
-    return selectors.map(function (selector) {
+function createCharts(colors, selectors) {
+    return selectors.map(function (selector, index) {
         var canvas = document.getElementById(selector);
 
         var ctx = canvas.getContext('2d');
@@ -19,17 +19,21 @@ function createCharts(selectors) {
             labels: [1, 2, 3, 4, 5, 6, 7],
             datasets: [
                 {
-                    fillColor: "rgba(151,187,205,0.2)",
-                    strokeColor: "rgba(151,187,205,1)",
-                    pointColor: "rgba(151,187,205,1)",
-                    pointStrokeColor: "#fff",
-                    data: [28, 48, 40, 19, 86, 27, 90]
+                    fillColor: colors[index],
+                    data: [0, 0, 0, 0, 0, 0 , 0]
                 }
             ]
         };
 
         // Reduce the animation steps for demo clarity.
-        return new Chart(ctx).Line(startingData, {animationSteps: 15});
+        return new Chart(ctx).Line(startingData, {
+            animationSteps: 15,
+            scaleFontSize: 10,
+            scaleShowGridLines : false,
+            pointDotRadius : 2,
+            scaleFontFamily: "'Roboto'",
+            pointDot : false
+        });
     });
 }
 
@@ -38,7 +42,6 @@ function createCharts(selectors) {
  * @param data x, y
  */
 function addData(chart, data) {
-    console.log(data);
     chart.addData([data[1]], data[0]);
     // Remove the first point so we dont just add values forever
     chart.removeData();
@@ -54,9 +57,10 @@ function updateCharts(charts, data) {
 var CHART_NAMES = ['pulse-chart', 'oxygen-chart', 'patient-chart'];
 var CHANNEL = 3;
 var API_URL = '/device/' + CHANNEL;
+var COLORS = ['#2196F3', '#E91E63', '#009688'];
 
-var charts = createCharts(CHART_NAMES);
-var counter = 8;
+var charts = createCharts(COLORS, CHART_NAMES);
+var counter = 8; // keeps track of the x-axis
 
 (function update() {
     httpGetAsync(API_URL, function (rawData) {

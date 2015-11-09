@@ -60,7 +60,7 @@
     }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
-
+    <link rel="stylesheet" href="assets/css/main.css">
   </head>
 
   <body>
@@ -124,16 +124,11 @@
         <div class="mdl-grid demo-content">
 
           <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--8-col">
-            <canvas id="pulse-chart" width="500" height="300"></canvas>
-            <canvas id="oxygen-chart" width="500" height="300"></canvas>
-            <canvas id="patient-chart" width="500" height="300"></canvas>
-            <svg fill="currentColor" viewBox="0 0 500 250" class="demo-graph">
-              <use xlink:href="#chart">
-            </svg>
-            <svg fill="currentColor" viewBox="0 0 500 250" class="demo-graph">
-              <use xlink:href="#chart">
-            </svg>
+            <canvas class="chart demo-graph" id="pulse-chart"></canvas>
+            <canvas class="chart demo-graph" id="oxygen-chart"></canvas>
+            <canvas class="chart demo-graph" id="patient-chart"></canvas>
           </div>
+
           <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
             <div class="demo-updates mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
               <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
@@ -234,7 +229,6 @@
           </g>
         </defs>
       </svg>
-      <a href="https://github.com/google/material-design-lite/blob/master/templates/dashboard/" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">View Source</a>
     <script src="assets/js/material.min.js"></script>
     <script src="assets/js/main.js"></script>
   </body>
