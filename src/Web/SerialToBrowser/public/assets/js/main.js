@@ -82,17 +82,6 @@ var DOUGHNUTS = [
         options: {
             color: '#2196F3'
         }
-    },
-    {
-        name: 'Position',
-        canvasId: 'patient-doughnut',
-        labelId: 'patient-doughnut-label',
-        units: 'P',
-        initValue: 1,
-        maxValue: 5,
-        options: {
-            color: '#009688'
-        }
     }
 ];
 
@@ -107,6 +96,8 @@ var doughnuts = DOUGHNUTS.map(function (doughnutDetails) {
         doughnutDetails.options);
 });
 
+var patientPosition = new Position('patient-position-label');
+
 function updateDoughnuts(doughnuts, data) {
     doughnuts.forEach(function (doughnut, index) {
         doughnut.update(data[index]);
@@ -118,7 +109,7 @@ function updateDoughnuts(doughnuts, data) {
         var data = rawData.split(' ');
         updateCharts(charts, data);
         updateDoughnuts(doughnuts, data);
-
+        patientPosition.update(data[2]);
         update();
     });
 })();
