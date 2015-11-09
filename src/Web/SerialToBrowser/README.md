@@ -9,7 +9,7 @@ A dashboard concept for doctors to monitor their patients.
 - Pulse
 - Blood Oxygen
 - Patient Posture
--
+
 
 ## Installation
 
