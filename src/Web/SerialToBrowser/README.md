@@ -1,6 +1,6 @@
 # Patient Dashboard
 
-A dashboard concept for doctors to monitor their patients.
+A mobile responsive dashboard concept for doctors to monitor their patients.
 
 ![Screenshot](screenshot.png)
 
