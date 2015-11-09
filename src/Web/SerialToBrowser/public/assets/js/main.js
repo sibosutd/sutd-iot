@@ -58,9 +58,10 @@ var API_URL = '/device/' + CHANNEL;
 var charts = createCharts(CHART_NAMES);
 var counter = 8;
 
-setInterval(function () {
+(function update() {
     httpGetAsync(API_URL, function (rawData) {
         var data = rawData.split(' ');
         updateCharts(charts, data);
+        update();
     });
-}, 1000);
+})();
