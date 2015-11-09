@@ -54,10 +54,10 @@ function updateCharts(charts, data) {
     counter += 1;
 }
 
-var CHART_NAMES = ['pulse-chart', 'oxygen-chart', 'patient-chart'];
+var CHART_NAMES = ['pulse-chart', 'oxygen-chart'];
 var CHANNEL = 3;
 var API_URL = '/device/' + CHANNEL;
-var COLORS = ['#F44336', '#2196F3', '#009688'];
+var COLORS = ['#F44336', '#2196F3'];
 
 var charts = createCharts(COLORS, CHART_NAMES);
 var counter = 8; // keeps track of the x-axis
