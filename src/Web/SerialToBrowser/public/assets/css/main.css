@@ -17,3 +17,17 @@
     margin: auto;
     display: block;
 }
+
+.chart-label {
+    font-weight: 600;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+.position-label {
+    font-weight: 400;
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
