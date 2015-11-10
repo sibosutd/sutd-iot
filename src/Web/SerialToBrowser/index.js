@@ -17,7 +17,10 @@ by Tom Igoe
 var express = require('express');				// include express.js
 var app = express();								  	// a local instance of it
 
-app.use(express.static('public'));			// use the /public directory for static files
+var shouldSimulateData = process.argv[2] === '--simulate';
+const SIMULATE_DELAY = 4000;
+
+app.use(express.static(__dirname + '/public'));			// use the /public directory for static files
 
 // serial port initialization:
 var serialport = require('serialport'),	// include the serialport library
@@ -30,8 +33,10 @@ portConfig = {
 	parser: serialport.parsers.readline('\n')
 };
 
-// open the serial port:
-var myPort = new SerialPort(portName, portConfig);
+if (!shouldSimulateData) {
+    // open the serial port:
+    var myPort = new SerialPort(portName, portConfig);
+}
 
 // this runs after the server successfully starts:
 function serverStart() {
@@ -39,21 +44,28 @@ function serverStart() {
 	console.log('Server listening on port '+ port);
 }
 
-// this is the callback function for when the client
-// requests a static file:
-function serveFiles(request, response) {
-	var options = {							// options for serving files
-		root: __dirname + '/public/'		// root is the /public directory in the app directory
-	};
-	// get the file name from the request parameter:
-	var fileName = request.params.name;
-	// send the file:
-	response.sendFile(fileName, options);
+function random(low, high) {
+    return Math.random() * (high - low) + low;
+}
+
+function randomData() {
+    var generated = random(50, 100);
+    return Math.round(generated * 100) / 100;
 }
 
 // get an analog reading from the serial port.
 // This is a callback function for when the client requests /device/channel:
 function getSensorReading(request, response) {
+
+    if (shouldSimulateData) {
+        var data = [randomData(), randomData(), Math.round(random(1, 5))];
+        setTimeout(function () {
+
+            response.end(data.join(' '));
+        }, SIMULATE_DELAY);
+        return;
+    }
+
 	// the parameter after /device/ is the channel number:
 	var channel = request.params.channel;
 	// console.log("getting channel: "+ channel + "...");
@@ -73,5 +85,4 @@ function getSensorReading(request, response) {
 // start the server:
 var server = app.listen(8080, serverStart);
 // start the listeners for GET requests:
-app.get('/files/:name', serveFiles);			// GET handler for all static files
 app.get('/device/:channel', getSensorReading);	// GET handler for /device

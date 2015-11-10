@@ -1,0 +1,74 @@
+.chart {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.doughnut-label {
+    position: absolute;
+    top: 55%;
+    left: 45%;
+    width: 30px; /* Set smaller to force text to overflow*/
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2em;
+    vertical-align: center;
+}
+
+.doughnut {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    display: block;
+}
+
+.chart-label {
+    font-weight: 600;
+    font-size: 1em;
+    text-transform: uppercase;
+}
+
+.position-label {
+    font-weight: 400;
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.avatar {
+    width: 125px;
+    height: 125px;
+    border-radius: 100%;
+    margin: 10px auto;
+}
+
+.drawer-header {
+    height: 225px;
+}
+
+.patient-title {
+    text-align: center;
+    width: 95%;
+}
+
+.patient-details *{
+    list-style: none;
+}
+
+.details-key {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    display: block;
+    color: rgba(255, 255, 255, 0.56);
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+
+.details-value {
+    font-size: 1.2em;
+}
+
+.patient-name {
+    font-size: 2em;
+    margin: 20px auto auto;
+}
