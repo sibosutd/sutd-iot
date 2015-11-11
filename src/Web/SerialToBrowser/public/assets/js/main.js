@@ -9,18 +9,27 @@ function httpGetAsync(theUrl, callback) {
     xmlHttp.send(null);
 }
 
+var MAX_DATA = 20;
+
 function createCharts(colors, selectors) {
     return selectors.map(function (selector, index) {
         var canvas = document.getElementById(selector);
 
         var ctx = canvas.getContext('2d');
 
+        var startingLabels = [0];
+        var startingValues = [0];
+        //for (var i = 0; i < MAX_DATA; i++) {
+        //    startingLabels.push(i);
+        //    startingValues.push(0);
+        //}
+
         var startingData = {
-            labels: [1, 2, 3, 4, 5, 6, 7],
+            labels: startingLabels,
             datasets: [
                 {
                     fillColor: colors[index],
-                    data: [0, 0, 0, 0, 0, 0 , 0]
+                    data: startingValues
                 }
             ]
         };
@@ -32,6 +41,7 @@ function createCharts(colors, selectors) {
             scaleShowGridLines : false,
             pointDotRadius : 2,
             scaleFontFamily: "'Roboto'",
+            scaleBeginAtZero: true,
             pointDot : false
         });
     });
@@ -44,7 +54,9 @@ function createCharts(colors, selectors) {
 function addData(chart, data) {
     chart.addData([data[1]], data[0]);
     // Remove the first point so we dont just add values forever
-    chart.removeData();
+    if (counter >= MAX_DATA) {
+        chart.removeData();
+    }
 }
 
 function updateCharts(charts, data) {
@@ -60,10 +72,10 @@ var API_URL = '/device/' + CHANNEL;
 var COLORS = {
     pulse: 'rgb(229,115,115)',
     oxygen: 'rgb(79,195,247)'
-}
+};
 
 var charts = createCharts([COLORS.pulse, COLORS.oxygen], CHART_NAMES);
-var counter = 8; // keeps track of the x-axis
+var counter = 1; // keeps track of the x-axis
 
 var DOUGHNUTS = [
     {
@@ -74,7 +86,8 @@ var DOUGHNUTS = [
         initValue: 50,
         maxValue: 160,
         options: {
-            color: COLORS.pulse
+            color: COLORS.pulse,
+            highlight: '#D32F2F'
         }
     },
     {
@@ -83,7 +96,8 @@ var DOUGHNUTS = [
         labelId: 'oxygen-doughnut-label',
         units: 'S<sub>p</sub>O<sub>2</sub>',
         options: {
-            color: COLORS.oxygen
+            color: COLORS.oxygen,
+            highlight: '#0288D1'
         }
     }
 ];

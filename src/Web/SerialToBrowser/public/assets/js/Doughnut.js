@@ -22,7 +22,8 @@ function updateDoughnut(doughtnut, labelId, maxValue, units, data) {
 
 var INIT_VALUE = 50;
 var MAX_VALUE = 100;
-var COLOR = '#F44336'
+var COLOR = '#F44336';
+var HIGHLIGHT = '#D32F2F'
 
 function Doughnut (name, canvasId, labelId, initValue, maxValue, units, options) {
     this.labelId = labelId;
@@ -35,7 +36,7 @@ function Doughnut (name, canvasId, labelId, initValue, maxValue, units, options)
     var dataOptions = {
         value: initValue,
         color: options.color || COLOR,
-        highlight: "#D32F2F",
+        highlight: options.highlight || HIGHLIGHT,
         label: name
     };
 
