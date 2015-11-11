@@ -13,6 +13,8 @@ A mobile responsive dashboard concept for doctors to monitor their patients.
 
 ## Installation
 
+You need [Node.js](https://nodejs.org/en/).
+
 ```bash
 $ cd src/Web/SerialToBrowser
 $ npm install
@@ -31,7 +33,7 @@ $ npm start
 ```bash
 $ npm start -- --simulate  # note the extra '--'
 ```
-or
+or the equivalent:
 
 ```bash
 $ node index.js --simulate  # equivalent syntax
