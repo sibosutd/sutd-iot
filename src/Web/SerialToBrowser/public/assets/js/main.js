@@ -113,7 +113,7 @@ var doughnuts = DOUGHNUTS.map(function (doughnutDetails) {
         doughnutDetails.options);
 });
 
-var patientPosition = new Position('patient-position-label');
+var patientPosition = new Position('patient-position-label', 'patient-position-img');
 
 function updateDoughnuts(doughnuts, data) {
     doughnuts.forEach(function (doughnut, index) {
