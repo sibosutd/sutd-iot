@@ -18,7 +18,7 @@ var express = require('express');				// include express.js
 var app = express();								  	// a local instance of it
 
 var shouldSimulateData = process.argv[2] === '--simulate';
-const SIMULATE_DELAY = 4000;
+const SIMULATE_DELAY = 1000;
 
 app.use(express.static(__dirname + '/public'));			// use the /public directory for static files
 
