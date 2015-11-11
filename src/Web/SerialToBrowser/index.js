@@ -50,7 +50,7 @@ function random(low, high) {
 
 function randomData() {
     var generated = random(50, 100);
-    return Math.round(generated * 100) / 100;
+    return Math.round(generated * 10) / 10;
 }
 
 // get an analog reading from the serial port.
