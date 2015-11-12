@@ -18,7 +18,7 @@ var express = require('express');				// include express.js
 var app = express();								  	// a local instance of it
 
 var shouldSimulateData = process.argv[2] === '--simulate';
-const SIMULATE_DELAY = 4000;
+const SIMULATE_DELAY = 1000;
 
 app.use(express.static(__dirname + '/public'));			// use the /public directory for static files
 
@@ -50,7 +50,7 @@ function random(low, high) {
 
 function randomData() {
     var generated = random(50, 100);
-    return Math.round(generated * 100) / 100;
+    return Math.round(generated * 10) / 10;
 }
 
 // get an analog reading from the serial port.
