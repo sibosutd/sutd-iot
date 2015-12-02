@@ -14,15 +14,13 @@ Tutorial
 + [Tutorial 2: Sensor Platform][tutorial_2]
 + [Tutorial 3: XBee Communication][tutorial_3]
 + [Tutorial 4: Udoo and Android Communication][tutorial_4]
-+ [Project Instruction (TBA)][project]
-
 
 Others
 -----------------
 
 + [Notes][notes]
 + [Configuration for Staff][config]
-
++ [Instruction for IoT eHealth Showcase][project]
 
 <!-- Links -->
 
